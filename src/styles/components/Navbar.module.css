@@ -1,0 +1,60 @@
+.container {
+  width: 100vw;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s ease;
+  position: sticky;
+  top: 1px;
+  padding-inline: 100px;
+}
+.container a {
+  text-decoration: none;
+  font-size: 15px;
+  border-bottom: 1px solid black;
+  color: black;
+  transition: 0.3s ease;
+}
+.cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #333;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transition: all 0.2s ease;
+  animation-name: stretch;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+}
+
+.container a:hover ~ .cursor{
+    width: 5px;
+    height:5px;
+} 
+.container a:hover{
+  transform: scale(1.2,1.2);
+  color: #8a8a8a;
+}
+@keyframes stretch {
+  0% {
+    opacity: 0.2;
+    background-color: green;
+    border-radius: 100%;
+  }
+
+  50% {
+    background-color: rgb(62, 62, 60);
+  }
+
+  100% {
+    transform: scale(2);
+    background-color:  #00ff6e;
+  }
+}

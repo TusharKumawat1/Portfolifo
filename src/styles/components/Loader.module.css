@@ -1,0 +1,127 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  text-align: center;
+  background-color: black;
+  color: white;
+  position: relative;
+  animation: outro2 1s 1 2.5s both;
+  transition: .3s ease;
+}
+.heading {
+  font-size: 14px;
+  opacity: 0.9;
+}
+.slogan {
+  font-size: 7rem;
+  font-weight: 500;
+  display: flex;
+  gap: 20px;
+  position: relative;
+  animation: outro3 1.5s 1 2s both ;
+}
+.word1 {
+  animation: intro 1.5s 1 both ;
+  position: relative;
+}
+.word2 {
+  color: #00ff95;
+  animation: intro 1.5s 1 .3s both ;
+  position: relative;
+}
+.word3 {
+  animation: intro 1.5s 1 .5s both ;
+  position: relative;
+}
+.word4 {
+  animation: intro 1.5s 1 1s both ;
+  position: relative;
+}
+@keyframes intro {
+    from{
+        opacity: 0;
+        left: 100px;
+    }to{
+        opacity: 1;
+        left: 0;
+    }
+}
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 3px solid;
+  border-color: #00ff95 transparent;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.greenContainer{
+    background-color:#00ff95;
+    width: 100%;
+    height: 0px;
+    position: absolute;
+    top: 85%;
+    animation: outro 1.5s 1 2s both;
+}
+@keyframes outro{
+    from{
+      opacity: .8;
+      top: 85%;  
+      height: 0px;
+    }to{
+        opacity: 1;
+        top: 0%;
+        height: 100%;
+    }
+}
+@keyframes outro2{
+    from{
+      opacity: 1;
+      height: 100vh;
+    }to{
+        opacity: 0;
+        height: 0;
+        display: none;
+    }
+}
+@keyframes outro3{
+    from{
+      opacity: 1;
+    }to{
+        opacity: 0;
+    }
+}
+@media screen and (max-width: 1080px) {
+    .slogan{
+        flex-direction: column;
+        font-size: 4rem;
+    }
+}
