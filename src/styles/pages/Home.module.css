@@ -5,7 +5,7 @@
     overflow-X: hidden;
 }
 .heading{
-    font-size: 12rem;
+    font-size: 10vw;
     position: relative;
     font-weight: 500;
     color: #343434;
@@ -20,7 +20,7 @@
     background: -webkit-linear-gradient(#eee, #333);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    /* width: 70%; */
+    text-align: center;
 }
 .word3{
     position: absolute;
@@ -31,7 +31,6 @@
     background: -webkit-linear-gradient(#14cf93, #14cf93);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    /* width: 40%; */
     animation: intro3 5s 1 1.5s both ease;
 }
 @keyframes intro1 {
@@ -60,7 +59,7 @@
        width: 0;
     }to{
         opacity: 1;
-       width: 50%;
+       width: 40%;
     }
 }
 .subHeading{
