@@ -8,6 +8,7 @@
   position: sticky;
   top: 1px;
   padding-inline: 100px;
+ background: none;
 }
 .container a {
   text-decoration: none;
@@ -25,13 +26,7 @@
   pointer-events: none;
   transform: translate(-50%, -50%);
   z-index: 9999;
-  transition: all 0.2s ease;
-  animation-name: stretch;
-  animation-duration: 2s;
-  animation-timing-function: ease-out;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
-  animation-play-state: running;
+  animation: stretch 2s ease-out alternate infinite running
 }
 
 .container a:hover ~ .cursor{

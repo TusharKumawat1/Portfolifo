@@ -21,7 +21,7 @@ export default function Navbar() {
       <Link to="/" >Skills</Link>
       <Link to="/" >Projects</Link>
       <Link to="/" >About me</Link>
-      <Link to="/" >Contect</Link>
+      <Link to="/" >Reach Out</Link>
      <div className={Styles.cursor} style={{ left: `${position.x}px`, top: `${position.y}px` }} />
     </div>
   );
