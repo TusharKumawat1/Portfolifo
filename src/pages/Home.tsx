@@ -3,6 +3,7 @@ import Styles from "../styles/pages/Home.module.css";
 import { myImage1, myImage2, myImage3 } from "../assets";
 import Skills from "./Skills";
 import Footer from "../components/Footer";
+import Projects from "./Projects";
 export default function Home() {
   const [time, settime] = useState("0:00");
   const date = new Date();
@@ -99,6 +100,7 @@ export default function Home() {
         </div>
       </div>
       <Skills/>
+      <Projects/>
       <Footer/>
     </div>
   );

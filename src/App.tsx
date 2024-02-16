@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import Loader from "./components/Loader";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import Skills from "./pages/Skills";
 
 export default function App() {
   const [loading, setloading] = useState(true);
