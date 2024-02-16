@@ -1,5 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Styles from "../styles/pages/Home.module.css";
+import { myImage1, myImage2, myImage3 } from "../assets";
 export default function Home() {
   const [time, settime] = useState("0:00");
   const date = new Date();
@@ -8,37 +9,47 @@ export default function Home() {
     minute: "numeric",
     hour12: true,
   });
-  const firstImageRef = useRef<HTMLDivElement | null>(null)
-  const secondImageRef = useRef<HTMLDivElement | null>(null)
-  const thirdImageRef = useRef<HTMLDivElement | null>(null)
-  const containerRef = useRef<HTMLDivElement | null>(null)
-  const [rotateDeg, setrotateDeg] = useState(0)
+  const firstImageRef = useRef<HTMLDivElement | null>(null);
+  const secondImageRef = useRef<HTMLDivElement | null>(null);
+  const thirdImageRef = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const [rotateDeg, setrotateDeg] = useState(0);
   const handleScroll = () => {
     if (containerRef.current) {
       const scrollPosition = containerRef.current.scrollTop;
       const newRotateDeg = Math.floor(scrollPosition / 50);
-  
       if (newRotateDeg <= 11) {
         setrotateDeg(newRotateDeg);
       }
-  
-      const firstImageRotate = newRotateDeg <= 11 ? newRotateDeg - 15 : -3;
-      const secondImageRotate = newRotateDeg <= 11 ? newRotateDeg - 9 : -1;
-      const thirdImageRotate = newRotateDeg <= 11 ? newRotateDeg - 14 : 1;
-      console.log("firstImageRotate :",firstImageRotate,"secondImageRotate : ",secondImageRotate,"thirdImageRotate : ",thirdImageRotate)
-      if (firstImageRef.current && secondImageRef.current && thirdImageRef.current) {
+      const firstImageRotate = newRotateDeg <= 11 ? rotateDeg - 15 : -3;
+      const secondImageRotate = newRotateDeg <= 11 ? rotateDeg - 9 : -1;
+      const thirdImageRotate = newRotateDeg <= 11 ? rotateDeg - 14 : 1;
+      if (
+        firstImageRef.current &&
+        secondImageRef.current &&
+        thirdImageRef.current
+      ) {
         firstImageRef.current.style.transform = `rotate(${firstImageRotate}deg)`;
         secondImageRef.current.style.transform = `rotate(${secondImageRotate}deg)`;
         thirdImageRef.current.style.transform = `rotate(${thirdImageRotate}deg)`;
       }
     }
   };
-
+  const handleMouseIn = (color: string) => {
+    document.body.style.background = color;
+  };
+  const handleMouseOut = () => {
+    document.body.style.background = "#fff";
+  };
   useEffect(() => {
     settime(timeString);
   }, [timeString]);
   return (
-    <div className={Styles.container} onScroll={handleScroll} ref={containerRef}>
+    <div
+      className={Styles.container}
+      onScroll={handleScroll}
+      ref={containerRef}
+    >
       <div className={Styles.heading}>
         <span className={Styles.word1}>Versatile </span>
         <div className={Styles.wordContainer}>
@@ -59,9 +70,30 @@ export default function Home() {
           </p>
         </div>
         <div className={Styles.images}>
-          <div className={`${Styles.imageCard} ${Styles.firstImage}` } ref={firstImageRef}></div>
-          <div className={`${Styles.imageCard} ${Styles.secondImage}`} ref={secondImageRef}></div>
-          <div className={`${Styles.imageCard} ${Styles.thirdImage}`} ref={thirdImageRef}></div>
+          <div
+            className={`${Styles.imageCard} ${Styles.firstImage}`}
+            ref={firstImageRef}
+            onMouseEnter={() => handleMouseIn("#FFF6E9")}
+            onMouseLeave={handleMouseOut}
+          >
+            <img src={myImage3} alt="TusharImage1" />
+          </div>
+          <div
+            className={`${Styles.imageCard} ${Styles.secondImage}`}
+            ref={secondImageRef}
+            onMouseEnter={() => handleMouseIn("#E3F4F4")}
+            onMouseLeave={handleMouseOut}
+          >
+            <img className={Styles.image2} src={myImage2} alt="TusharImage1" />
+          </div>
+          <div
+            className={`${Styles.imageCard} ${Styles.thirdImage}`}
+            ref={thirdImageRef}
+            onMouseEnter={() => handleMouseIn("#F1EAFF")}
+            onMouseLeave={handleMouseOut}
+          >
+            <img src={myImage1} alt="TusharImage1" />
+          </div>
         </div>
       </div>
     </div>

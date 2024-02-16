@@ -1,4 +1,3 @@
-import React from "react";
 import Styles from "../styles/components/Loader.module.css";
 export default function Loader() {
   return (

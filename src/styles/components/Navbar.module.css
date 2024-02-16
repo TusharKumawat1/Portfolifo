@@ -40,16 +40,16 @@
 @keyframes stretch {
   0% {
     opacity: 0.2;
-    background-color: green;
+    background-color: rgb(0, 153, 255);
     border-radius: 100%;
   }
 
   50% {
-    background-color: rgb(62, 62, 60);
+    background-color: rgb(248, 19, 103);
   }
 
   100% {
-    transform: scale(2);
+    transform: scale(3);
     background-color:  #00ff6e;
   }
 }

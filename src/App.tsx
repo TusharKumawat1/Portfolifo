@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Loader from "./components/Loader";
 import Navbar from "./components/Navbar";
 import { Route, Routes } from "react-router-dom";
@@ -18,9 +18,7 @@ export default function App() {
       ) : (
         <div className="mainContainer">
           <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-          </Routes>
+          <Home />
         </div>
       )}
     </div>
