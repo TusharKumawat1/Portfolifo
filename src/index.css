@@ -4,12 +4,34 @@
   margin: 0%;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
 }
 .mainContainer{
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 body{
   transition: .5s ease;
+}
+/* width */
+.mainContainer::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Track */
+.mainContainer::-webkit-scrollbar-track {
+  box-shadow: none;
+  border-radius: 10px;
+}
+ 
+/* Handle */
+.mainContainer::-webkit-scrollbar-thumb {
+  background: #c4c4c4 ; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.mainContainer::-webkit-scrollbar-thumb:hover {
+  background: #AEDEFC; 
 }

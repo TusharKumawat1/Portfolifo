@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import Styles from "../styles/pages/Home.module.css";
 import { myImage1, myImage2, myImage3 } from "../assets";
+import Skills from "./Skills";
+import Footer from "../components/Footer";
 export default function Home() {
   const [time, settime] = useState("0:00");
   const date = new Date();
@@ -50,7 +52,7 @@ export default function Home() {
       onScroll={handleScroll}
       ref={containerRef}
     >
-      <div className={Styles.heading}>
+      <div className={Styles.heading} id="home">
         <span className={Styles.word1}>Versatile </span>
         <div className={Styles.wordContainer}>
           <span className={Styles.word2}>Fullstack </span>
@@ -96,6 +98,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Skills/>
+      <Footer/>
     </div>
   );
 }

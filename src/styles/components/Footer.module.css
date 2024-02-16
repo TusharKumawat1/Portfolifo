@@ -1,0 +1,62 @@
+.container {
+  padding: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: contain;
+  color: black;
+  height: 100vh;
+  width: 100%;
+}
+.container p {
+  font-size: 6rem;
+  text-align: center;
+  font-weight: 400;
+  width: 42%;
+  line-height: 85px;
+}
+.buttonContainer{
+    padding-inline: 100px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.buttonContainer button{
+    font-size: 25px;
+    padding: 50px;
+    width: 45%;
+    border: 1px sold black;
+    border-radius: 100px;
+    background: transparent;
+    margin-block: 100px;
+    transition: .3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.fill{
+    width: 50%;
+    background-color: black;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left:30%;
+    border-radius: 40px;
+    z-index: -1;
+    transition: .1s ease;
+    opacity: 0;
+}
+.buttonContainer button:hover>.fill{
+    opacity: .8;
+    left:0;
+    width: 100%;
+    border-radius: 100px;
+    transition: .3s ease-in-out;
+}
+.buttonContainer button:hover{
+  color: white;
+  transition: .3s ease-in-out;
+}
