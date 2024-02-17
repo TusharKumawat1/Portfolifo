@@ -17,12 +17,14 @@ export default function Home() {
   const thirdImageRef = useRef<HTMLDivElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [rotateDeg, setrotateDeg] = useState(0);
+  const [animateIntro, setAnimateIntro] = useState(false);
   const handleScroll = () => {
     if (containerRef.current) {
       const scrollPosition = containerRef.current.scrollTop;
       const newRotateDeg = Math.floor(scrollPosition / 50);
       if (newRotateDeg <= 11) {
         setrotateDeg(newRotateDeg);
+        setAnimateIntro(true);
       }
       const firstImageRotate = newRotateDeg <= 11 ? rotateDeg - 15 : -3;
       const secondImageRotate = newRotateDeg <= 11 ? rotateDeg - 9 : -1;
@@ -47,12 +49,30 @@ export default function Home() {
   useEffect(() => {
     settime(timeString);
   }, [timeString]);
+  useEffect(() => {
+    document.body.style.transition = ".5s ease";
+  }, []);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const moveCursor = (e: MouseEvent) => {
+      setPosition({ x: e.clientX, y: e.clientY });
+    };
+
+    document.addEventListener('mousemove', moveCursor);
+
+    return () => {
+      document.removeEventListener('mousemove', moveCursor);
+    };
+  }, []);
   return (
     <div
       className={Styles.container}
       onScroll={handleScroll}
       ref={containerRef}
     >
+       <a href="#reach" className={Styles.Reachout}>Reach Out</a>
+     <div className={Styles.cursor} style={{ left: `${position.x}px`, top: `${position.y}px` }} />
       <div className={Styles.heading} id="home">
         <span className={Styles.word1}>Versatile </span>
         <div className={Styles.wordContainer}>
@@ -66,7 +86,9 @@ export default function Home() {
         <i className="fa-solid fa-arrow-turn-down"></i>
       </div>
       <div className={Styles.section1}>
-        <div className={Styles.text}>
+        <div
+          className={`${Styles.text} ${animateIntro ? Styles.fadeInUp : ""}`}
+        >
           <p>
             I am <span>Tushar Kumawat</span>, an imaginative and adaptable
             full-stack developer.
@@ -99,9 +121,9 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <Skills/>
-      <Projects/>
-      <Footer/>
+      <Skills />
+      <Projects />
+      <Footer />
     </div>
   );
 }

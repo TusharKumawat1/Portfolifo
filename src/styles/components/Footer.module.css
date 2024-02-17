@@ -8,7 +8,7 @@
   background-position: center;
   object-fit: contain;
   color: black;
-  width: 100%;
+  width: 100vw;
   background-color: rgb(249, 249, 241);
   --mask:
   radial-gradient(447.21px at 50% 600.00px,#000 99%,#0000 101%) calc(50% - 400px) 0/800px 100%,

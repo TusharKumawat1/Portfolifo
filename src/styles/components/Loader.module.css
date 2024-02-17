@@ -12,6 +12,12 @@
   position: relative;
   animation: outro2 1s 1 2.5s both;
   transition: .3s ease;
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: 'Mazius';
+  src: url('../../assets/MaziusDisplay-Extraitalic.woff2') format('opentype');
 }
 .heading {
   font-size: 14px;
@@ -23,23 +29,23 @@
   display: flex;
   gap: 20px;
   position: relative;
-  animation: outro3 1.5s 1 2s both ;
+  animation: outro3 1.5s 1 1s both ;
 }
 .word1 {
-  animation: intro 1.5s 1 both ;
+  animation: intro .5s 1 both ;
   position: relative;
 }
 .word2 {
   color: #00ff95;
-  animation: intro 1.5s 1 .3s both ;
+  animation: intro .7s 1 .3s both ;
   position: relative;
 }
 .word3 {
-  animation: intro 1.5s 1 .5s both ;
+  animation: intro .9s 1 .5s both ;
   position: relative;
 }
 .word4 {
-  animation: intro 1.5s 1 1s both ;
+  animation: intro 1.1s 1 1s both ;
   position: relative;
 }
 @keyframes intro {
@@ -52,10 +58,8 @@
     }
 }
 .loader {
-  width: 48px;
-  height: 48px;
-  border: 3px solid #fff;
-  border-radius: 50%;
+  width: 58px;
+  height: 58px;
   display: inline-block;
   position: relative;
   box-sizing: border-box;
@@ -68,8 +72,8 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 56px;
-  height: 56px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   border: 3px solid;
   border-color: #00ff95 transparent;
@@ -84,7 +88,7 @@
   }
 }
 .greenContainer{
-    background-color:#00ff95;
+    background-color: #00ff95;
     width: 100%;
     height: 0px;
     position: absolute;
@@ -124,4 +128,25 @@
         flex-direction: column;
         font-size: 4rem;
     }
+}
+/* width */
+.container::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Track */
+.container::-webkit-scrollbar-track {
+  box-shadow: none;
+  border-radius: 10px;
+}
+ 
+/* Handle */
+.container::-webkit-scrollbar-thumb {
+  background: #c4c4c4 ; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.container::-webkit-scrollbar-thumb:hover {
+  background: #AEDEFC; 
 }

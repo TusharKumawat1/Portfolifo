@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Loader from "./components/Loader";
-import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 
 export default function App() {
@@ -16,7 +15,6 @@ export default function App() {
         <Loader />
       ) : (
         <div className="mainContainer">
-          <Navbar />
           <Home />
         </div>
       )}
