@@ -62,30 +62,30 @@ export default function Skills() {
     <div className={Styles.Myskills}>
     <div className={Styles.skills}>
         <div className={Styles.frontend}  ref={FrontendRef}>
-        <img src="https://skillicons.dev/icons?i=tailwind" />
-        <img src="https://skillicons.dev/icons?i=bootstrap" />
-        <img src="https://skillicons.dev/icons?i=scss" />
-        <img src="https://skillicons.dev/icons?i=react" />
-        <img src="https://skillicons.dev/icons?i=nextjs" />
-        <img src="https://skillicons.dev/icons?i=typescript" />
-        <img src="https://skillicons.dev/icons?i=javascript" />
-        <img src="https://skillicons.dev/icons?i=css" />
-        <img src="https://skillicons.dev/icons?i=html" />
+        <img  src="https://skillicons.dev/icons?i=tailwind" alt="img1"/>
+        <img alt="im2" src="https://skillicons.dev/icons?i=bootstrap" />
+        <img alt="im3" src="https://skillicons.dev/icons?i=scss" />
+        <img alt="im4" src="https://skillicons.dev/icons?i=react" />
+        <img alt="im5" src="https://skillicons.dev/icons?i=nextjs" />
+        <img alt="im6" src="https://skillicons.dev/icons?i=typescript" />
+        <img alt="im7" src="https://skillicons.dev/icons?i=javascript" />
+        <img alt="img23" src="https://skillicons.dev/icons?i=css" />
+        <img alt="img33" src="https://skillicons.dev/icons?i=html" />
         </div>
         <div className={Styles.backend} ref={BackendRef}>
-        <img src="https://skillicons.dev/icons?i=nodejs" />
-        <img src="https://skillicons.dev/icons?i=redis" />
-        <img src="https://skillicons.dev/icons?i=mongodb" />
-        <img src="https://skillicons.dev/icons?i=graphql" />
-        <img src="https://skillicons.dev/icons?i=express" />
-        <img src="https://skillicons.dev/icons?i=postgres" />
+        <img alt="img321" src="https://skillicons.dev/icons?i=nodejs" />
+        <img alt="img12" src="https://skillicons.dev/icons?i=redis" />
+        <img alt="img56" src="https://skillicons.dev/icons?i=mongodb" />
+        <img alt="img86" src="https://skillicons.dev/icons?i=graphql" />
+        <img alt="img97" src="https://skillicons.dev/icons?i=express" />
+        <img alt="img64" src="https://skillicons.dev/icons?i=postgres" />
         </div>
         <div className={Styles.tools} ref={ToolsRef}>
-        <img src="https://skillicons.dev/icons?i=git" />
-        <img src="https://skillicons.dev/icons?i=github" />
-        <img src="https://skillicons.dev/icons?i=docker" />
-        <img src="https://skillicons.dev/icons?i=postman" />
-        <img src="https://skillicons.dev/icons?i=vscode" />
+        <img alt="img232" src="https://skillicons.dev/icons?i=git" />
+        <img alt="imgg44" src="https://skillicons.dev/icons?i=github" />
+        <img alt="img4fgh" src="https://skillicons.dev/icons?i=docker" />
+        <img alt="img67g" src="https://skillicons.dev/icons?i=postman" />
+        <img alt="img7gg" src="https://skillicons.dev/icons?i=vscode" />
         </div>
       </div>
       <div className={Styles.skillContainer}>

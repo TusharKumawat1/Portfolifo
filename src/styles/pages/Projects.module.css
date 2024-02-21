@@ -1,3 +1,72 @@
 .container{
-    padding: 100px;
+    width: 100%;
+    height: 100%;
+    padding-inline: 100px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.project{
+    width: 80%;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 40px;
+    border :none;
+    height: 350px;
+    align-items: center;
+    gap: 20px;
+}
+.imageCover{
+    width: 30%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+.imageCover img{
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.about{
+    width: 40%;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.desc{
+    color: #cacaca;
+    font-size: 15px;
+    word-spacing: 2px;
+}
+.about p{
+    font-weight: 500;
+    word-spacing: 2px;
+    
+}
+.btnContainer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.btnContainer a{
+    text-decoration: none;
+    font-size: 17px;
+    color: #ffffff;
+    transition: .3s ease;
+    height: 30px;
+}
+.btnContainer a:hover{
+    transform: scale(1.1,1.1);
+    text-decoration: underline;
+    text-decoration-color: #00ff95;
+    text-underline-offset: 4px;
 }
