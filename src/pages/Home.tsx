@@ -1,10 +1,12 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import Styles from "../styles/pages/Home.module.css";
 import { myImage1, myImage2, myImage3 } from "../assets";
 import Skills from "./Skills";
 import Footer from "../components/Footer";
 import Projects from "./Projects";
+import { Mycontext } from "../context/Mycontext";
 export default function Home() {
+  const {CursorRef}=useContext(Mycontext);
   const [time, settime] = useState("0:00");
   const date = new Date();
   const timeString = date.toLocaleString("en-US", {
@@ -52,8 +54,8 @@ export default function Home() {
   useEffect(() => {
     document.body.style.transition = ".5s ease";
   }, []);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-
+  // const [position, setPosition] = useState({ x: 0, y: 0 });
+  const {position,setPosition}=useContext(Mycontext);
   useEffect(() => {
     const moveCursor = (e: MouseEvent) => {
       setPosition({ x: e.clientX, y: e.clientY });
@@ -72,7 +74,7 @@ export default function Home() {
       ref={containerRef}
     >
        <a href="#reach" className={Styles.Reachout}>Reach Out</a>
-     <div className={Styles.cursor} style={{ left: `${position.x}px`, top: `${position.y}px` }} />
+     <div className={Styles.cursor} style={{ left: `${position.x}px`, top: `${position.y}px` }}  ref={CursorRef}/>
       <div className={Styles.heading} id="home">
         <span className={Styles.word1}>Versatile </span>
         <div className={Styles.wordContainer}>

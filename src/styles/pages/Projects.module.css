@@ -1,72 +1,130 @@
-.container{
+.container {
+  width: 100%;
+  height: auto;
+  padding-inline: 100px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: start;
+  gap: 20px;
+}
+.heading {
+  font-size: 10rem;
+}
+.heading span {
+  font-family: Mazius;
+  padding-inline: 10px;
+  background: url("../../assets/33d0e10ff8a6a3014e54d5da3f8e91f8.gif");
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bolder;
+}
+.project {
+  width: 80%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 40px;
+  border: none;
+  height: 350px;
+  align-items: center;
+  gap: 20px;
+  margin-block: 20px;
+}
+.imageCover {
+  width: 30%;
+  height: 100%;
+  /* overflow: hidden; */
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  position: relative;
+}
+.coverImg {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.about {
+  width: 40%;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.desc {
+  color: #cacaca;
+  font-size: 15px;
+  word-spacing: 2px;
+}
+.about p {
+  font-weight: 500;
+  word-spacing: 2px;
+}
+.btnContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.btnContainer a {
+  text-decoration: none;
+  font-size: 17px;
+  color: #ffffff;
+  transition: 0.3s ease;
+  height: 30px;
+}
+.btnContainer a:hover {
+  transform: scale(1.1, 1.1);
+  text-decoration: underline;
+  text-decoration-color: #00ff95;
+  text-underline-offset: 4px;
+}
+.previewImages {
+  width: 70%;
+  height: 70%;
+  position: absolute;
+  opacity: 0;
+  transition: .1s ease;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* z-index: 9999; */
+}
+.previewImages img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  object-position: center;
+}
+.imageCover:hover {
+  cursor: none;
+}
+.project:nth-child(3) {
+  margin-left: 18vw;
+  background-color: #cacaca;
+}
+.project:nth-child(5) {
+  margin-left: 18vw;
+  background-color: #cacaca;
+}
+.project:nth-child(3) .about,
+.project:nth-child(3) .desc,
+.project:nth-child(3) .btnContainer a,
+.project:nth-child(5) .about,
+.project:nth-child(5) .desc,
+.project:nth-child(5) .btnContainer a {
+  color: black;
+}
+.project:nth-child(3) .imageCover img{
+    /* object-fit: contain; */
     width: 100%;
-    height: 100%;
-    padding-inline: 100px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-}
-.project{
-    width: 80%;
-    background: rgba(0,0,0,0.9);
-    display: flex;
-    justify-content: space-evenly;
-    border-radius: 40px;
-    border :none;
-    height: 350px;
-    align-items: center;
-    gap: 20px;
-}
-.imageCover{
-    width: 30%;
-    height: 100%;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: end;
-}
-.imageCover img{
-    width: 100%;
-    height: 80%;
-    object-fit: cover;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-}
-.about{
-    width: 40%;
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-.desc{
-    color: #cacaca;
-    font-size: 15px;
-    word-spacing: 2px;
-}
-.about p{
-    font-weight: 500;
-    word-spacing: 2px;
-    
-}
-.btnContainer{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-.btnContainer a{
-    text-decoration: none;
-    font-size: 17px;
-    color: #ffffff;
-    transition: .3s ease;
-    height: 30px;
-}
-.btnContainer a:hover{
-    transform: scale(1.1,1.1);
-    text-decoration: underline;
-    text-decoration-color: #00ff95;
-    text-underline-offset: 4px;
 }
