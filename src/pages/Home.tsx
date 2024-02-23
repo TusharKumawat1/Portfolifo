@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 import Projects from "./Projects";
 import { Mycontext } from "../context/Mycontext";
 export default function Home() {
-  const {CursorRef}=useContext(Mycontext);
+  const { CursorRef } = useContext(Mycontext);
   const [time, settime] = useState("0:00");
   const date = new Date();
   const timeString = date.toLocaleString("en-US", {
@@ -54,17 +54,16 @@ export default function Home() {
   useEffect(() => {
     document.body.style.transition = ".5s ease";
   }, []);
-  // const [position, setPosition] = useState({ x: 0, y: 0 });
-  const {position,setPosition}=useContext(Mycontext);
+  const { position, setPosition } = useContext(Mycontext);
   useEffect(() => {
     const moveCursor = (e: MouseEvent) => {
       setPosition({ x: e.clientX, y: e.clientY });
     };
 
-    document.addEventListener('mousemove', moveCursor);
+    document.addEventListener("mousemove", moveCursor);
 
     return () => {
-      document.removeEventListener('mousemove', moveCursor);
+      document.removeEventListener("mousemove", moveCursor);
     };
   }, []);
   return (
@@ -73,8 +72,14 @@ export default function Home() {
       onScroll={handleScroll}
       ref={containerRef}
     >
-       <a href="#reach" className={Styles.Reachout}>Reach Out</a>
-     <div className={Styles.cursor} style={{ left: `${position.x}px`, top: `${position.y}px` }}  ref={CursorRef}/>
+      <a href="#reach" className={Styles.Reachout}>
+        Reach Out
+      </a>
+      <div
+        className={Styles.cursor}
+        style={{ left: `${position.x}px`, top: `${position.y}px` }}
+        ref={CursorRef}
+      />
       <div className={Styles.heading} id="home">
         <span className={Styles.word1}>Versatile </span>
         <div className={Styles.wordContainer}>

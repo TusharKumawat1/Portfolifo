@@ -10,11 +10,16 @@ import PreviewImg4 from "./instass/Screenshot 2024-01-23 152651.png";
 import PreviewImg5 from "./instass/Screenshot 2024-02-20 145227.png";
 import Portfolio1 from "./Portolio/Screenshot 2024-02-22 144528.png";
 import Portfolio2 from "./Portolio/Screenshot 2024-02-22 135128.png";
-import Portfolio3 from "./Portolio/Screenshot 2024-02-22 135030.png";
+import Portfolio3 from "./Portolio/PORTFOLIO.pmg.png";
 import Portfolio4 from "./Portolio/Screenshot 2024-02-22 135200.png";
-import instagif from "./8gnu4z.gif"
-import portfolioGif from "./8gnu7q.gif"
-import chatAppgif from "./8gnuk4.gif"
+import chatCover from "./Portolio/Chat.png"
+import instaGif from "./Gifs/instagif.gif"
+import portfolioGIF from "./Gifs/PORTFOLIO.gif"
+import chatappGif from "./Gifs/CHATAPP.gif"
+import notesappGif from "./Gifs/NOTESAPP.gif"
+import weatherappGIF from "./Gifs/WEATHER.gif"
+import noteCover from "./Portolio/note.png"
+import weatherCover from "./Portolio/WEATHER.png"
 export {
   myImage1,
   myImage2,
@@ -30,7 +35,12 @@ export {
   Portfolio2,
   Portfolio3,
   Portfolio4,
-  instagif,
-  chatAppgif,
-  portfolioGif
+  instaGif,
+  portfolioGIF,
+  chatappGif,
+  notesappGif,
+  chatCover,
+  weatherappGIF,
+  noteCover,
+  weatherCover
 };

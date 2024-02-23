@@ -1,19 +1,16 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useRef } from "react";
 import Styles from "../styles/pages/Projects.module.css";
 import {
-  PreviewImg1,
-  PreviewImg2,
+  chatappGif,
+  chatCover,
+  instaGif,
   instaProjectCover,
-  PreviewImg3,
-  PreviewImg4,
-  PreviewImg5,
-  Portfolio1,
-  Portfolio2,
-  instagif,
-  chatAppgif,
-  portfolioGif,
-  Portfolio4,
+  noteCover,
+  notesappGif,
   Portfolio3,
+  portfolioGIF,
+  weatherappGIF,
+  weatherCover,
 } from "../assets";
 import { Mycontext } from "../context/Mycontext";
 import cursorStyle from "../styles/pages/Home.module.css";
@@ -26,7 +23,7 @@ export default function Projects() {
     useRef<HTMLDivElement | null>(null),
     useRef<HTMLDivElement | null>(null),
   ];
-  
+
   const handleMouseIn = () => {
     if (CursorRef.current) {
       CursorRef.current.style.width = "100px";
@@ -39,7 +36,7 @@ export default function Projects() {
     }
   };
 
-  const handleMouseOut = (index:number) => {
+  const handleMouseOut = (index: number) => {
     if (CursorRef.current) {
       CursorRef.current.style.animation = `${cursorStyle.stretch} 2s ease-out alternate infinite running`;
       CursorRef.current.style.width = "20px";
@@ -47,9 +44,10 @@ export default function Projects() {
     }
     if (previewRefs[index] && previewRefs[index].current) {
       previewRefs[index]!.current!.style.opacity = "0";
+      previewRefs[index]!.current!.style.display = "none";
     }
   };
-  const mouseOnImage = (Bgcolor: String,index:number) => {
+  const mouseOnImage = (Bgcolor: String, index: number) => {
     if (CursorRef.current) {
       CursorRef.current.style.width = "20px";
       CursorRef.current.style.height = "20px";
@@ -61,16 +59,19 @@ export default function Projects() {
     }
     if (previewRefs[index] && previewRefs[index].current) {
       previewRefs[index]!.current!.style.opacity = "1";
+      previewRefs[index]!.current!.style.display = "flex";
     }
   };
   return (
     <div className={Styles.container}>
-      <h1 className={Styles.heading}>Pro<span>ject</span>s</h1>
+      <h1 className={Styles.heading}>
+        Pro<span>ject</span>s
+      </h1>
       <div className={Styles.project}>
         <div
           className={Styles.imageCover}
-          onMouseEnter={() => mouseOnImage("#000",0)}
-          onMouseLeave={()=>handleMouseOut(0)}
+          onMouseEnter={() => mouseOnImage("#000", 0)}
+          onMouseLeave={() => handleMouseOut(0)}
         >
           <img
             src={instaProjectCover}
@@ -85,16 +86,16 @@ export default function Projects() {
             }}
             ref={previewRefs[0]}
           >
-            <img src={instagif} alt="previewImg" />
+            <img src={instaGif} alt="previewImg" />
           </div>
         </div>
         <div
           className={Styles.about}
           onMouseEnter={handleMouseIn}
-          onMouseLeave={()=>handleMouseOut(0)}
+          onMouseLeave={() => handleMouseOut(0)}
         >
           <h2>Instagram clone</h2>
-          <p> React, Express js, Node js, MongoDb, Graphql</p>
+          <p> MERN, RestApis, Crud operation, Graphql</p>
           <div className={Styles.desc}>
             I developed a fully-functional Instagram clone using the MERN
             (MongoDB, Express.js, React, Node.js) stack along with GraphQL. This
@@ -118,16 +119,24 @@ export default function Projects() {
         </div>
       </div>
       <div className={Styles.project}>
-  
         <div
           className={Styles.about}
           onMouseEnter={handleMouseIn}
-          onMouseLeave={()=>handleMouseOut(1)}
+          onMouseLeave={() => handleMouseOut(1)}
         >
           <h2>My Portfolio</h2>
-          <p> React, Express js, Node js ,Css</p>
+          <p> React, UI, Css,</p>
           <div className={Styles.desc}>
-          I created my portfolio using React to showcase my projects and work. With a focus on clean design and user experience, my portfolio features a collection of projects that demonstrate my skills in front-end development, including React components, responsive design, and CSS animations. Each project is carefully crafted to highlight my ability to create dynamic and engaging web applications. Whether you're a recruiter, potential client, or fellow developer, my portfolio offers a glimpse into my expertise and passion for creating exceptional digital experiences. Explore my projects and discover the creativity and innovation behind each one.
+            I created my portfolio using React to showcase my projects and work.
+            With a focus on clean design and user experience, my portfolio
+            features a collection of projects that demonstrate my skills in
+            front-end development, including React components, responsive
+            design, and CSS animations. Each project is carefully crafted to
+            highlight my ability to create dynamic and engaging web
+            applications. Whether you're a recruiter, potential client, or
+            fellow developer, my portfolio offers a glimpse into my expertise
+            and passion for creating exceptional digital experiences. Explore my
+            projects and discover the creativity and innovation behind each one.
           </div>
           <p className={Styles.btnContainer}>
             <a href="http://" target="_blank" rel="noopener noreferrer">
@@ -140,37 +149,29 @@ export default function Projects() {
         </div>
         <div
           className={Styles.imageCover}
-          onMouseEnter={() => mouseOnImage("#000",1)}
-          onMouseLeave={()=>handleMouseOut(1)}
+          onMouseEnter={() => mouseOnImage("#000", 1)}
+          onMouseLeave={() => handleMouseOut(1)}
         >
-          <img
-            src={Portfolio3}
-            alt="portfolio"
-            className={Styles.coverImg}
-          />
+          <img src={Portfolio3} alt="portfolio" className={Styles.coverImg} />
           <div
             className={Styles.previewImages}
             style={{
-              left: `${position.x - 210}px`,
-              top: `${position.y - 250}px`,
+              left: `${position.x / 30}%`,
+              top: `${position.y - 350}px`,
             }}
             ref={previewRefs[1]}
           >
-            <img src={""} alt="previewImg" />
+            <img src={portfolioGIF} alt="previewImg" />
           </div>
         </div>
       </div>
       <div className={Styles.project}>
         <div
           className={Styles.imageCover}
-          onMouseEnter={() => mouseOnImage("#000",2)}
-          onMouseLeave={()=>handleMouseOut(2)}
+          onMouseEnter={() => mouseOnImage("#000", 2)}
+          onMouseLeave={() => handleMouseOut(2)}
         >
-          <img
-            src={instaProjectCover}
-            alt="instaclone"
-            className={Styles.coverImg}
-          />
+          <img src={chatCover} alt="instaclone" className={Styles.coverImg} />
           <div
             className={Styles.previewImages}
             style={{
@@ -179,16 +180,16 @@ export default function Projects() {
             }}
             ref={previewRefs[2]}
           >
-            <img src={chatAppgif} alt="previewImg" />
+            <img src={chatappGif} alt="previewImg" />
           </div>
         </div>
         <div
           className={Styles.about}
           onMouseEnter={handleMouseIn}
-          onMouseLeave={()=>handleMouseOut(2)}
+          onMouseLeave={() => handleMouseOut(2)}
         >
-          <h2>Instagram clone</h2>
-          <p> React, Express js, Node js, MongoDb, Graphql</p>
+          <h2>Chat app</h2>
+          <p> Mern, Websocket, RestApis</p>
           <div className={Styles.desc}>
             I developed a fully-functional Instagram clone using the MERN
             (MongoDB, Express.js, React, Node.js) stack along with GraphQL. This
@@ -212,14 +213,13 @@ export default function Projects() {
         </div>
       </div>
       <div className={Styles.project}>
-    
         <div
           className={Styles.about}
           onMouseEnter={handleMouseIn}
-          onMouseLeave={()=>handleMouseOut(2)}
+          onMouseLeave={() => handleMouseOut(2)}
         >
-          <h2>Instagram clone</h2>
-          <p> React, Express js, Node js, MongoDb, Graphql</p>
+          <h2>Notes App</h2>
+          <p> React, Express js, Node js, MongoDb, Crud Operation</p>
           <div className={Styles.desc}>
             I developed a fully-functional Instagram clone using the MERN
             (MongoDB, Express.js, React, Node.js) stack along with GraphQL. This
@@ -243,34 +243,30 @@ export default function Projects() {
         </div>
         <div
           className={Styles.imageCover}
-          onMouseEnter={() => mouseOnImage("#000",3)}
-          onMouseLeave={()=>handleMouseOut(3)}
+          onMouseEnter={() => mouseOnImage("#000", 3)}
+          onMouseLeave={() => handleMouseOut(3)}
         >
-          <img
-            src={instaProjectCover}
-            alt="instaclone"
-            className={Styles.coverImg}
-          />
+          <img src={noteCover} alt="instaclone" className={Styles.coverImg} />
           <div
             className={Styles.previewImages}
             style={{
-              left: `${position.x - 210}px`,
-              top: `${position.y - 250}px`,
+              left: `${position.x / 40}%`,
+              top: `${position.y - 350}px`,
             }}
             ref={previewRefs[3]}
           >
-            <img src={""} alt="previewImg" />
+            <img src={notesappGif} alt="previewImg" />
           </div>
         </div>
       </div>
       <div className={Styles.project}>
         <div
           className={Styles.imageCover}
-          onMouseEnter={() => mouseOnImage("#000",4)}
-          onMouseLeave={()=>handleMouseOut(4)}
+          onMouseEnter={() => mouseOnImage("#000", 4)}
+          onMouseLeave={() => handleMouseOut(4)}
         >
           <img
-            src={instaProjectCover}
+            src={weatherCover}
             alt="instaclone"
             className={Styles.coverImg}
           />
@@ -282,16 +278,16 @@ export default function Projects() {
             }}
             ref={previewRefs[4]}
           >
-            <img src={""} alt="previewImg" />
+            <img src={weatherappGIF} alt="previewImg" />
           </div>
         </div>
         <div
           className={Styles.about}
           onMouseEnter={handleMouseIn}
-          onMouseLeave={()=>handleMouseOut(4)}
+          onMouseLeave={() => handleMouseOut(4)}
         >
-          <h2>Instagram clone</h2>
-          <p> React, Express js, Node js, MongoDb, Graphql</p>
+          <h2>Weather app</h2>
+          <p> React, Css, Api, Bootstrap </p>
           <div className={Styles.desc}>
             I developed a fully-functional Instagram clone using the MERN
             (MongoDB, Express.js, React, Node.js) stack along with GraphQL. This
