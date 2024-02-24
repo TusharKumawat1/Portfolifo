@@ -155,9 +155,10 @@ outline: none;
 @media screen and (max-width: 800px) {
   .heading{
     width: 100%;
+    font-size: 3rem;
   }
   .container{
-    padding-inline: 0;
+    padding-inline: 10px;
   }
   .social{
     flex-direction: column;

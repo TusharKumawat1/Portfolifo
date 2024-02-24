@@ -282,41 +282,42 @@ color: #8a8a8a;
     gap: 50px;
   }
 }
-@media screen and (max-width: 1100px) {
-  .section1{
-    gap: 50px;
-    flex-direction: column;
-    padding: 100px;
-    justify-content: flex-start;
-    align-items: flex-start;
-  }
-  .text{
-    width: 80%;
-  }
-  
-}
-@media screen and (max-width: 1000px) {
-  .wordContainer{
-    flex-direction: column;
-    width: 100%;
-  }
-  .heading{
-    font-size: 8rem;
-  }
-  .word2{
-    width: 200%;
-  }
-  .subHeading{
-    top: 90%;
-    right: 20%;
+@media screen and (max-width: 1250px) {
+  .images{
     width: 40%;
+    height: 70vh;
+  }
+  .imageCard{
+    width: 50%;
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .images{
+    width: 30%;
+    height: 60vh;
+  }
+  .imageCard{
+    width: 40%;
+    height: 100%;
+  }
+}
+@media screen and (max-width: 1080px) {
+  .imageCard img{
+    width: 80%;
+    height: 100%;
+    border-radius: 30px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .imageCard img{
+    width: 70%;
+    height: 90%;
+    border-radius: 30px;
   }
 }
 @media screen and (max-width: 800px) {
-  .images{
-    min-width: none;
-    width: 30%;
-  }
   @keyframes intro3 {
     from {
       opacity: 0;
@@ -327,81 +328,70 @@ color: #8a8a8a;
       width: 100%;
     }
   }
-}
-@media screen and (max-width: 700px) {
-  .section1{
-    padding: 50px;
-  }
-  .images{
-    min-width: none;
-    width: 20%;
-  }
-}
-@media screen and (max-width: 600px) {
-  .section1{
-    padding: 30px;
-  }
-  .images{
-    min-width: none;
-    width: 10%;
-  }
-}
-@media screen and (max-width: 450px) {
-  .section1{
-    padding: 10px;
-  }
-  .images {
-    display: flex;
-    position: relative;
-    width: 20vw;
-    height: 50vh;
-  }
-  .imageCard {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    border-radius: 30px;
-    transition: 1s ease;
-    overflow: hidden;
-    min-width: 500px;
-  }
-  .firstImage{
-    display: none;
-  }
-  .secondImage{
-    left: 10px;
-    display: none;
-  }
-  .thirdImage{
-    /* width: 100px; */
-    left: -20px;
+  .container{
+    padding-inline: 20px;
   }
   .wordContainer{
     flex-direction: column;
-    width: 100%;
+  }
+  .word3{
+    text-align: start;
+   
   }
   .heading{
-    font-size: 4rem;
-    padding: 10px;
-    margin-bottom: 100px;
+    font-size: 15vw;
+    padding: 0;
+    margin-top: 50px;
   }
   .word2{
-    letter-spacing: 1px;
+    width: 100%;
+    text-align: end;
+    letter-spacing: 5px;
+  }
+  .imageCard img{
+    width: 100%;
+    height: 90%;
+    border-radius: 30px;
   }
   .subHeading{
-    top: 100%;
-    right: 10%;
     width: 50%;
+    top: 110%;
   }
-  .container{
-    padding-inline: 0px;
+  .section1{
+    flex-direction: column-reverse;
+    margin-top: 150px;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 50px;
   }
   .heading i{
-    bottom: -30%;
+    bottom:-30%;
   }
-  .text{
-    padding: 10px;
+  .text {
     width: 100%;
+    font-weight: 300;
+    font-size: 40px;
+    margin-top: 200px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .imageCard img{
+    width: 70%;
+    height: 80%;
+    border-radius: 30px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .imageCard img{
+    width: 60%;
+    height: 80%;
+    border-radius: 30px;
+  }
+  .container{
+    padding-inline: 10px;
+  }
+  .heading i{
+    bottom:-40%;
   }
 }
 @keyframes fadeInUp {
