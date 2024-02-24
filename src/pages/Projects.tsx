@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef,  } from "react";
 import Styles from "../styles/pages/Projects.module.css";
 import PROJECTS from "../Utils/projects";
 import { Mycontext } from "../context/Mycontext";
