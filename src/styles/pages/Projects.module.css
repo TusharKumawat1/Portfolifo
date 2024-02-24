@@ -12,6 +12,7 @@
 .heading {
   font-size: 10rem;
   margin-block: 50px;
+  opacity: 0;
 }
 .heading span {
   font-family: Mazius;
@@ -32,6 +33,7 @@
   align-items: center;
   gap: 20px;
   margin-block: 20px;
+  opacity: 0;
 }
 .imageCover {
   width: 40%;
@@ -129,18 +131,20 @@
     /* object-fit: contain; */
     width: 100%;
 }
-.slideIn {
-  transform: translateX(0);
-  opacity: 1;
-  transition: transform 0.5s ease, opacity 0.5s ease;
-}
 
-.slideInLeft {
-  transform: translateX(-100%);
-  opacity: 0;
+.reverse {
+  flex-direction: row-reverse;
 }
-
-.slideInRight {
-  transform: translateX(100%);
-  opacity: 0;
+.fadeIn{
+  animation: fadeIn 1s 1 ease;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(120px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

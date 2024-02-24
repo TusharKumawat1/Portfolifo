@@ -22,12 +22,14 @@
     /* margin-bottom: -35vh; */
     margin-top: 100px;
     margin-left: 40%;
+    opacity: 0;
 }
 .heading{
     position: absolute;
     top: 0;
     left: 100px;
     font-size: 10rem;
+    opacity: 0;
 }
 .heading span{
     font-family: Mazius;
@@ -46,6 +48,7 @@
     justify-content: center;
     align-self: center;
     margin-top: 5%;
+    opacity: 0;
 }
 .skills{
     width: 50%;
@@ -170,5 +173,19 @@
     }
     .skill{
         display: none;
+    }
+  }
+
+.fadeIn{
+    animation: fadeIn 1s ease;
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(120px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
     }
   }

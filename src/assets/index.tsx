@@ -20,6 +20,7 @@ import notesappGif from "./Gifs/NOTESAPP.gif"
 import weatherappGIF from "./Gifs/WEATHER.gif"
 import noteCover from "./Portolio/note.png"
 import weatherCover from "./Portolio/WEATHER.png"
+import newsgif from "./Gifs/news.gif"
 export {
   myImage1,
   myImage2,
@@ -42,5 +43,6 @@ export {
   chatCover,
   weatherappGIF,
   noteCover,
-  weatherCover
+  weatherCover,
+  newsgif
 };

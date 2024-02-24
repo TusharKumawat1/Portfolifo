@@ -15,6 +15,7 @@
   radial-gradient(447.21px at 50% -400px,#0000 99%,#000 101%) 50% 200px/800px 100% repeat-x;
 -webkit-mask: var(--mask);
         mask: var(--mask);
+  opacity: 0;
 }
 .heading {
   font-size: 6rem;
@@ -168,5 +169,18 @@ outline: none;
   }
   .links{
     width: 100%;
+  }
+}
+.fadeIn{
+  animation: fadeIn 1s ease;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(120px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

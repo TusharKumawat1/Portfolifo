@@ -1,8 +1,37 @@
+import { useEffect } from "react";
 import Styles from "../styles/components/Footer.module.css";
 
 export default function Footer() {
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5,
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const targetElement = entry.target as HTMLElement;
+          targetElement.classList.add(Styles.fadeIn);
+          targetElement.style.opacity = "1";
+          observer.unobserve(targetElement);
+        }
+      });
+    }, options);
+
+    const container = document.querySelector(`.${Styles.container}`);
+
+    if (container) {
+      observer.observe(container);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
   return (
-    <div className={Styles.container} >
+    <div className={Styles.container}>
       <p className={Styles.heading}>LET'S TALK ABOUT THE NEXT BIG THING</p>
       <div className={Styles.buttonContainer}>
         <a href="mailto:tusharkumawat9694@gmail.com" className={Styles.btn}>
@@ -13,7 +42,11 @@ export default function Footer() {
         </button>
       </div>
       <div className={Styles.social}>
-        <a className={Styles.links} href="https://www.linkedin.com/in/tushar-kumawat-260935280/" target="_blank">
+        <a
+          className={Styles.links}
+          href="https://www.linkedin.com/in/tushar-kumawat-260935280/"
+          target="_blank"
+        >
           <span>
             <p>Linkedin</p>
             <p className={Styles.username}>Tusharkumawat</p>
@@ -21,7 +54,11 @@ export default function Footer() {
           <i className="fa-brands fa-linkedin"></i>
           <p className={Styles.fill2}></p>
         </a>
-        <a className={Styles.links} href="https://twitter.com/@tusharkumawat_" target="_blank">
+        <a
+          className={Styles.links}
+          href="https://twitter.com/@tusharkumawat_"
+          target="_blank"
+        >
           {" "}
           <span>
             <p>X.com</p>
@@ -30,7 +67,11 @@ export default function Footer() {
           <i className="fa-brands fa-x-twitter"></i>
           <p className={Styles.fill2}></p>
         </a>
-        <a className={Styles.links} href="https://www.instagram.com/tusharkumawat._/" target="_blank">
+        <a
+          className={Styles.links}
+          href="https://www.instagram.com/tusharkumawat._/"
+          target="_blank"
+        >
           {" "}
           <span>
             <p>Instagram</p>
@@ -39,7 +80,11 @@ export default function Footer() {
           <i className="fa-brands fa-instagram"></i>
           <p className={Styles.fill2}></p>
         </a>
-        <a className={Styles.links} href="https://github.com/TusharKumawat1" target="_blank">
+        <a
+          className={Styles.links}
+          href="https://github.com/TusharKumawat1"
+          target="_blank"
+        >
           {" "}
           <span>
             <p>Github</p>

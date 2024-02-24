@@ -1,17 +1,6 @@
-import React, { useContext, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import Styles from "../styles/pages/Projects.module.css";
-import {
-  chatappGif,
-  chatCover,
-  instaGif,
-  instaProjectCover,
-  noteCover,
-  notesappGif,
-  Portfolio3,
-  portfolioGIF,
-  weatherappGIF,
-  weatherCover,
-} from "../assets";
+import PROJECTS from "../Utils/projects";
 import { Mycontext } from "../context/Mycontext";
 import cursorStyle from "../styles/pages/Home.module.css";
 export default function Projects() {
@@ -62,254 +51,111 @@ export default function Projects() {
       previewRefs[index]!.current!.style.display = "flex";
     }
   };
+
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5,
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const targetElement = entry.target as HTMLElement;
+          targetElement.classList.add(Styles.fadeIn);
+          targetElement.style.opacity = "1";
+          observer.unobserve(targetElement);
+        }
+      });
+      
+    }, options);
+
+    document.querySelectorAll(`.${Styles.project}`).forEach((project) => {
+      observer.observe(project);
+    });
+     document.querySelectorAll(`.${Styles.heading}`).forEach((heading) => {
+      if (heading) {
+        observer.observe(heading);
+      }
+    });
+   
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <div className={Styles.container}>
+    <div className={`${Styles.container } ${Styles.active}`}>
       <h1 className={Styles.heading}>
         Pro<span>ject</span>s
       </h1>
-      <div className={Styles.project}>
-        <div
-          className={Styles.imageCover}
-          onMouseEnter={() => mouseOnImage("#000", 0)}
-          onMouseLeave={() => handleMouseOut(0)}
-        >
-          <img
-            src={instaProjectCover}
-            alt="instaclone"
-            className={Styles.coverImg}
-          />
+      {PROJECTS.map((item, index) => {
+        const isSecondOrFourth = index === 1 || index === 3;
+        return (
           <div
-            className={Styles.previewImages}
-            style={{
-              left: `${position.x - 210}px`,
-              top: `${position.y - 250}px`,
-            }}
-            ref={previewRefs[0]}
+            className={`${Styles.project} ${
+              isSecondOrFourth ? Styles.reverse : ""
+            } `}
+            key={index}
+
           >
-            <img src={instaGif} alt="previewImg" />
+            <div
+              className={Styles.imageCover}
+              onMouseEnter={() => mouseOnImage("#000", index)}
+              onMouseLeave={() => handleMouseOut(index)}
+            >
+              <img
+                src={item.coverImage}
+                alt="instaclone"
+                className={Styles.coverImg}
+              />
+              <div
+                className={Styles.previewImages}
+                style={
+                  isSecondOrFourth
+                    ? {
+                        left: `${position.x / 30}%`,
+                        top: `${position.y / 10}%`,
+                      }
+                    : {
+                        left: `${position.x - 210}px`,
+                        top: `${position.y - 250}px`,
+                      }
+                }
+                ref={previewRefs[index]}
+              >
+                <img src={item.hoverImage} alt="previewImg" />
+              </div>
+            </div>
+            <div
+              className={Styles.about}
+              onMouseEnter={handleMouseIn}
+              onMouseLeave={() => handleMouseOut(index)}
+            >
+              <h2>{item.name}</h2>
+              <p>{item.tech}</p>
+              <div className={Styles.desc}>{item.desc}</div>
+              <p className={Styles.btnContainer}>
+                <a
+                  href={item.links.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Github <i className="fa-brands fa-github"></i>
+                </a>
+                <a
+                  href={item.links.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Demo{" "}
+                </a>
+              </p>
+            </div>
           </div>
-        </div>
-        <div
-          className={Styles.about}
-          onMouseEnter={handleMouseIn}
-          onMouseLeave={() => handleMouseOut(0)}
-        >
-          <h2>Instagram clone</h2>
-          <p> MERN, RestApis, Crud operation, Graphql</p>
-          <div className={Styles.desc}>
-            I developed a fully-functional Instagram clone using the MERN
-            (MongoDB, Express.js, React, Node.js) stack along with GraphQL. This
-            project replicates Instagram's core features, including user
-            authentication, image uploading, social interactions, and real-time
-            updates. Leveraging the power of GraphQL, the application
-            efficiently manages data queries and mutations, ensuring optimal
-            performance and scalability. With a focus on clean code and modern
-            design principles, this Instagram clone demonstrates my proficiency
-            in full-stack web development and showcases my ability to create
-            engaging and interactive web applications.
-          </div>
-          <p className={Styles.btnContainer}>
-            <a href="http://" target="_blank" rel="noopener noreferrer">
-              Github <i className="fa-brands fa-github"></i>
-            </a>
-            <a href="http://" target="_blank" rel="noopener noreferrer">
-              Demo{" "}
-            </a>
-          </p>
-        </div>
-      </div>
-      <div className={Styles.project}>
-        <div
-          className={Styles.about}
-          onMouseEnter={handleMouseIn}
-          onMouseLeave={() => handleMouseOut(1)}
-        >
-          <h2>My Portfolio</h2>
-          <p> React, UI, Css,</p>
-          <div className={Styles.desc}>
-            I created my portfolio using React to showcase my projects and work.
-            With a focus on clean design and user experience, my portfolio
-            features a collection of projects that demonstrate my skills in
-            front-end development, including React components, responsive
-            design, and CSS animations. Each project is carefully crafted to
-            highlight my ability to create dynamic and engaging web
-            applications. Whether you're a recruiter, potential client, or
-            fellow developer, my portfolio offers a glimpse into my expertise
-            and passion for creating exceptional digital experiences. Explore my
-            projects and discover the creativity and innovation behind each one.
-          </div>
-          <p className={Styles.btnContainer}>
-            <a href="http://" target="_blank" rel="noopener noreferrer">
-              Github <i className="fa-brands fa-github"></i>
-            </a>
-            <a href="http://" target="_blank" rel="noopener noreferrer">
-              Demo{" "}
-            </a>
-          </p>
-        </div>
-        <div
-          className={Styles.imageCover}
-          onMouseEnter={() => mouseOnImage("#000", 1)}
-          onMouseLeave={() => handleMouseOut(1)}
-        >
-          <img src={Portfolio3} alt="portfolio" className={Styles.coverImg} />
-          <div
-            className={Styles.previewImages}
-            style={{
-              left: `${position.x / 30}%`,
-              top: `${position.y - 350}px`,
-            }}
-            ref={previewRefs[1]}
-          >
-            <img src={portfolioGIF} alt="previewImg" />
-          </div>
-        </div>
-      </div>
-      <div className={Styles.project}>
-        <div
-          className={Styles.imageCover}
-          onMouseEnter={() => mouseOnImage("#000", 2)}
-          onMouseLeave={() => handleMouseOut(2)}
-        >
-          <img src={chatCover} alt="instaclone" className={Styles.coverImg} />
-          <div
-            className={Styles.previewImages}
-            style={{
-              left: `${position.x - 210}px`,
-              top: `${position.y - 250}px`,
-            }}
-            ref={previewRefs[2]}
-          >
-            <img src={chatappGif} alt="previewImg" />
-          </div>
-        </div>
-        <div
-          className={Styles.about}
-          onMouseEnter={handleMouseIn}
-          onMouseLeave={() => handleMouseOut(2)}
-        >
-          <h2>Chat app</h2>
-          <p> Mern, Websocket, RestApis</p>
-          <div className={Styles.desc}>
-            I developed a fully-functional Instagram clone using the MERN
-            (MongoDB, Express.js, React, Node.js) stack along with GraphQL. This
-            project replicates Instagram's core features, including user
-            authentication, image uploading, social interactions, and real-time
-            updates. Leveraging the power of GraphQL, the application
-            efficiently manages data queries and mutations, ensuring optimal
-            performance and scalability. With a focus on clean code and modern
-            design principles, this Instagram clone demonstrates my proficiency
-            in full-stack web development and showcases my ability to create
-            engaging and interactive web applications.
-          </div>
-          <p className={Styles.btnContainer}>
-            <a href="http://" target="_blank" rel="noopener noreferrer">
-              Github <i className="fa-brands fa-github"></i>
-            </a>
-            <a href="http://" target="_blank" rel="noopener noreferrer">
-              Demo{" "}
-            </a>
-          </p>
-        </div>
-      </div>
-      <div className={Styles.project}>
-        <div
-          className={Styles.about}
-          onMouseEnter={handleMouseIn}
-          onMouseLeave={() => handleMouseOut(2)}
-        >
-          <h2>Notes App</h2>
-          <p> React, Express js, Node js, MongoDb, Crud Operation</p>
-          <div className={Styles.desc}>
-            I developed a fully-functional Instagram clone using the MERN
-            (MongoDB, Express.js, React, Node.js) stack along with GraphQL. This
-            project replicates Instagram's core features, including user
-            authentication, image uploading, social interactions, and real-time
-            updates. Leveraging the power of GraphQL, the application
-            efficiently manages data queries and mutations, ensuring optimal
-            performance and scalability. With a focus on clean code and modern
-            design principles, this Instagram clone demonstrates my proficiency
-            in full-stack web development and showcases my ability to create
-            engaging and interactive web applications.
-          </div>
-          <p className={Styles.btnContainer}>
-            <a href="http://" target="_blank" rel="noopener noreferrer">
-              Github <i className="fa-brands fa-github"></i>
-            </a>
-            <a href="http://" target="_blank" rel="noopener noreferrer">
-              Demo{" "}
-            </a>
-          </p>
-        </div>
-        <div
-          className={Styles.imageCover}
-          onMouseEnter={() => mouseOnImage("#000", 3)}
-          onMouseLeave={() => handleMouseOut(3)}
-        >
-          <img src={noteCover} alt="instaclone" className={Styles.coverImg} />
-          <div
-            className={Styles.previewImages}
-            style={{
-              left: `${position.x / 40}%`,
-              top: `${position.y - 350}px`,
-            }}
-            ref={previewRefs[3]}
-          >
-            <img src={notesappGif} alt="previewImg" />
-          </div>
-        </div>
-      </div>
-      <div className={Styles.project}>
-        <div
-          className={Styles.imageCover}
-          onMouseEnter={() => mouseOnImage("#000", 4)}
-          onMouseLeave={() => handleMouseOut(4)}
-        >
-          <img
-            src={weatherCover}
-            alt="instaclone"
-            className={Styles.coverImg}
-          />
-          <div
-            className={Styles.previewImages}
-            style={{
-              left: `${position.x - 210}px`,
-              top: `${position.y - 250}px`,
-            }}
-            ref={previewRefs[4]}
-          >
-            <img src={weatherappGIF} alt="previewImg" />
-          </div>
-        </div>
-        <div
-          className={Styles.about}
-          onMouseEnter={handleMouseIn}
-          onMouseLeave={() => handleMouseOut(4)}
-        >
-          <h2>Weather app</h2>
-          <p> React, Css, Api, Bootstrap </p>
-          <div className={Styles.desc}>
-            I developed a fully-functional Instagram clone using the MERN
-            (MongoDB, Express.js, React, Node.js) stack along with GraphQL. This
-            project replicates Instagram's core features, including user
-            authentication, image uploading, social interactions, and real-time
-            updates. Leveraging the power of GraphQL, the application
-            efficiently manages data queries and mutations, ensuring optimal
-            performance and scalability. With a focus on clean code and modern
-            design principles, this Instagram clone demonstrates my proficiency
-            in full-stack web development and showcases my ability to create
-            engaging and interactive web applications.
-          </div>
-          <p className={Styles.btnContainer}>
-            <a href="http://" target="_blank" rel="noopener noreferrer">
-              Github <i className="fa-brands fa-github"></i>
-            </a>
-            <a href="http://" target="_blank" rel="noopener noreferrer">
-              Demo{" "}
-            </a>
-          </p>
-        </div>
-      </div>
+        );
+      })}
     </div>
   );
 }

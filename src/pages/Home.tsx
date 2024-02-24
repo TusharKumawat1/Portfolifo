@@ -17,9 +17,9 @@ export default function Home() {
   const firstImageRef = useRef<HTMLDivElement | null>(null);
   const secondImageRef = useRef<HTMLDivElement | null>(null);
   const thirdImageRef = useRef<HTMLDivElement | null>(null);
-  const containerRef = useRef<HTMLDivElement | null>(null);
   const [rotateDeg, setrotateDeg] = useState(0);
   const [animateIntro, setAnimateIntro] = useState(false);
+  const {containerRef}=useContext(Mycontext);
   const handleScroll = () => {
     if (containerRef.current) {
       const scrollPosition = containerRef.current.scrollTop;
